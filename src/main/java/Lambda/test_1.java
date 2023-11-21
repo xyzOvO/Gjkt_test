@@ -57,6 +57,6 @@ public class test_1 {
         teset_2 teset2 = () ->{
             System.out.println("Lambda测试");
         };
+        System.out.println(teset2);
     }
-
 }
