@@ -57,6 +57,30 @@ public class test_1 {
         teset_2 teset2 = () ->{
             System.out.println("Lambda测试");
         };
-        System.out.println(teset2);
+        // 调用函数式接口的方法来使用Lambda表达式：
+        teset2.doString();
     }
+
+    @Test
+    public void cs_5(){
+        // 使用Lambda表达式创建线程（使用Runnable接口）：
+        Runnable task = () -> {
+            System.out.println("Runnable Thread:"+Thread.currentThread().getName());
+        };
+        Thread thread = new Thread(task);
+        thread.start();
+        /**
+         * Lambda表达式有如下优势：
+         * 简洁性：使用Lambda表达式可以避免编写繁琐的匿名内部类，使得线程和并发编程的代码更加简洁、易读。
+         * 可读性：Lambda表达式将关注点集中在线程执行的逻辑上，使代码更加清晰和易于理解。
+         * 灵活性：Lambda表达式可以轻松地实现自定义的线程执行逻辑，并与Java中的函数式接口配合使用，实现更加灵活的编程模型。
+         * 并行处理：使用Lambda表达式结合ExecutorService和Callable，可以更方便地实现并行处理和异步任务执行。
+         */
+    }
+
+    @Test
+    public void cs_6(){
+
+    }
+
 }
