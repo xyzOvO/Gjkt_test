@@ -1,9 +1,13 @@
 package Stream;
 
+import javafx.beans.binding.ObjectExpression;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -11,6 +15,10 @@ import java.util.stream.Stream;
  * @date 2023/11/21 17:22
  */
 public class test_1 {
+    @Before
+    public void init(){
+        System.out.println("-----------------");
+    }
     @Test
     public void cs_1() {
         // 1.Collection体系的集合可以使用默认方法stream()生成流：
@@ -47,6 +55,15 @@ public class test_1 {
         int[] cs = {1,2,3};
 //        Stream<Integer> intStream2 = Stream.of(cs);// 直接报错
 //        System.out.println(intStream2.collect(Collectors.toList()).toString());
+    }
+    @Test
+    public void cs_5(){
+        Integer[] nums = {1,2,3,4,5,6,7,8,9,10};
+//        Stream<Integer>
+        List<Integer> list = Arrays.stream(nums)
+                .map(num -> num * 2)
+                .collect(Collectors.toList());
+        System.out.println(list.toString());
     }
 
 }
