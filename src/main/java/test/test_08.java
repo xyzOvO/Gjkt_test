@@ -23,8 +23,7 @@ public class test_08 {
         // 2. 去重-set
         List<String> list2 = new ArrayList<>(Arrays.asList("1","1","2","2","3","2","1"));
         Set<String> set = new HashSet<>(list2);
-        List<String> collect = set.stream().
-                collect(Collectors.toList());
+        List<String> collect = new ArrayList<>(set);
         System.out.println(collect);
         // 3. 去重-hashmap
         List<String> list3 = new ArrayList<>(Arrays.asList("1","1","2","2","3","2","1"));
