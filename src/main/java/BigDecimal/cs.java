@@ -36,6 +36,7 @@ public class cs {
         System.out.println("除法:" + bigDecimal1.divide(bigDecimal2,2,BigDecimal.ROUND_UP));
         // 比较 .compareTo
         System.out.println("比较:" + bigDecimal1.compareTo(bigDecimal2));
+
     }
 
     @Test
