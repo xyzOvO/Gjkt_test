@@ -12,15 +12,15 @@ public class lk_26 {
 
     public int removeDuplicates(int[] nums) {
         int len = nums.length;
-        int left = 0;
-        for (int right = left + 1; right < len; right++) {
-            if (nums[right] != nums[left]) {
-                left++;
-                nums[left] = nums[right];
+        int p = 0;
+        for (int q = p + 1; q < len; q++) {
+            if (nums[q] != nums[p]) {
+                p++;
+                nums[p] = nums[q];
             }
         }
 //        Arrays.stream(nums).forEach(System.out::println);
-        return left+1;
+        return p+1;
     }
 
 //    public int removeDuplicates(int[] nums) {
