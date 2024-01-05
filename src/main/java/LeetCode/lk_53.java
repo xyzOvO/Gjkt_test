@@ -27,27 +27,48 @@ public class lk_53 {
 //        }
 //        return max;
 //    }
+//    public int maxSubArray(int[] nums) {
+//        int len = nums.length;
+//        // dp[i] 表示：以 nums[i] 结尾的连续子数组的最大和
+//        int[] dp = new int[len];
+//        dp[0] = nums[0];
+//
+//        // 状态转移方程
+//        for (int i = 1; i < len; i++) {
+//            if (dp[i - 1] > 0) {
+//                dp[i] = dp[i - 1] + nums[i];
+//            } else {
+//                dp[i] = nums[i];
+//            }
+//        }
+//
+//        // 也可以在上面遍历的同时求出 res 的最大值，这里我们为了语义清晰分开写，大家可以自行选择
+//        int res = dp[0];
+//        for (int i = 1; i < len; i++) {
+//            res = Math.max(res, dp[i]);
+//        }
+//        return res;
+//    }
     public int maxSubArray(int[] nums) {
-        int len = nums.length;
-        // dp[i] 表示：以 nums[i] 结尾的连续子数组的最大和
-        int[] dp = new int[len];
+        // DP
+        if (nums.length==1) return nums[0];
+        int[] dp = new int[nums.length];// 记录当前最大
         dp[0] = nums[0];
-
-        // 状态转移方程
-        for (int i = 1; i < len; i++) {
-            if (dp[i - 1] > 0) {
-                dp[i] = dp[i - 1] + nums[i];
-            } else {
+        int resMax = Integer.MIN_VALUE;
+        for (int i = 1; i < nums.length; i++) {
+            // 开始看状态,注意连续！！！
+            if (dp[i - 1] < 0) {
+                // 负数一定会越来越小
                 dp[i] = nums[i];
+            } else {
+                // 正数开始积累
+                dp[i] = dp[i - 1] + nums[i];
             }
         }
-
-        // 也可以在上面遍历的同时求出 res 的最大值，这里我们为了语义清晰分开写，大家可以自行选择
-        int res = dp[0];
-        for (int i = 1; i < len; i++) {
-            res = Math.max(res, dp[i]);
+        for (int i : dp) {
+            resMax = Math.max(i, resMax);
         }
-        return res;
+        return resMax;
     }
 
 
