@@ -41,22 +41,42 @@ public class lk_206 {
 //        }
 //        return pre;
 //    }
+
+    //    public ListNode reverseList(ListNode head) {
+//        List<Integer> list = new ArrayList<>();
+//        ListNode cur = head;
+//        ListNode pre = new ListNode(-1);
+//        ListNode end = pre;
+//        while (cur != null) {
+//            list.add(cur.val);
+//            cur = cur.next;
+//        }
+//        Collections.reverse(list);
+//        for (Integer i : list) {
+//            ListNode newnode = new ListNode(i);
+//            end.next = newnode;
+//            end = end.next;
+//        }
+//        return pre.next;
+//    }
     public ListNode reverseList(ListNode head) {
         List<Integer> list = new ArrayList<>();
-        ListNode cur = head;
-        ListNode pre = new ListNode(-1);
-        ListNode end = pre;
+        ListNode cur = head;// 设定为新链表的头结点
+        // 定位到原链表尾部
         while (cur != null) {
-            list.add(cur.val);
+            list.add(cur.val);// 用集合存放原链表的值
             cur = cur.next;
         }
         Collections.reverse(list);
+        // 创建新链表
+        ListNode newHead = new ListNode(-1);// -1表示新链表的头结点
+        ListNode end = newHead; // 新链表尾部
         for (Integer i : list) {
             ListNode newnode = new ListNode(i);
             end.next = newnode;
             end = end.next;
         }
-        return pre.next;
+        return newHead.next;
     }
 }
 
